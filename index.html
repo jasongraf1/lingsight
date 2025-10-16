@@ -58,27 +58,46 @@
     .team-name { font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; margin: 0 0 4px; }
     .team-title { font-size: 15px; color: var(--muted); margin: 0; }
     /* --- Mobile tweaks for team grid --- */
-@media (max-width: 640px) {
-  .grid.cards { 
-    grid-template-columns: 1fr;   /* single column on phones */
-    gap: 14px;
-  }
-  .card.team { 
-    grid-column: auto !important; /* override inline “span 6” */
-    grid-template-columns: 88px 1fr;  /* photo left, text right */
-  }
-  .card.team img { 
-    width: 88px; 
-    height: 88px; 
-    object-fit: cover; 
-    border-radius: 12px; 
-  }
-  .team-name { font-size: 20px; }
-  .team-title { font-size: 14px; }
-}
+    @media (max-width: 640px) {
+      .grid.cards { 
+        grid-template-columns: 1fr;   /* single column on phones */
+        gap: 14px;
+      }
+      .card.team { 
+        grid-column: auto !important; /* override inline “span 6” */
+        grid-template-columns: 88px 1fr;  /* photo left, text right */
+      }
+      .card.team img { 
+        width: 88px; 
+        height: 88px; 
+        object-fit: cover; 
+        border-radius: 12px; 
+      }
+      .team-name { font-size: 20px; }
+      .team-title { font-size: 14px; }
+    }
 
-/* Avoid text overflow in narrow cards */
-.team-name, .team-title { overflow-wrap: anywhere; }
+    /* Avoid text overflow in narrow cards */
+    .team-name, .team-title { overflow-wrap: anywhere; }
+
+  
+    /* --- Strong mobile layout fix for team section and overall page --- */
+    html, body { overflow-x: hidden; }
+    @media (max-width: 640px) {
+      .container { padding-left: 16px; padding-right: 16px; }
+      /* Kill the 12-col grid on phones and stack cards vertically */
+      .grid.cards { display: block !important; }
+      .grid.cards > .card { 
+        width: 100% !important; 
+        margin: 0 0 14px 0 !important; 
+        grid-column: 1 / -1 !important; 
+      }
+      /* Inside each team card: compact horizontal layout */
+      .card.team { display: grid !important; grid-template-columns: 80px 1fr !important; }
+      .card.team img { width: 80px !important; height: 80px !important; object-fit: cover; border-radius: 12px; }
+      .team-name { font-size: 19px !important; }
+      .team-title { font-size: 14px !important; }
+    }
   </style>
 </head>
 <body>
