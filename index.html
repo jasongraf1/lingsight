@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lingsight — Linguistic insights for a complex, language‑driven world</title>
-  <meta name="description" content="World‑class linguists helping teams solve complex language problems across AI, brand communication, large‑scale language data, and security threats." />
+  <title>Lingsight — Linguistic insights for a complex, language-driven world</title>
+  <meta name="description" content="World-class linguists helping teams solve complex language problems across AI, communication, large-scale language data, and security threats." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🗣️</text></svg>">
   <style>
     :root {
@@ -26,22 +26,17 @@
     .container { width: 100%; max-width: var(--maxw); padding: 0 20px; margin: 0 auto; }
     .nav { position: sticky; top: 0; z-index: 40; background: linear-gradient(to bottom, rgba(11,11,12,.9), rgba(11,11,12,.7)); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap: 16px; padding: 14px 0; }
-    .logo { display:flex; align-items:center; gap: 10px; font-weight: 700; letter-spacing: .2px; }
-    .logo .dot { width: 10px; height:10px; border-radius:50%; background: var(--accent); display:inline-block }
+    .logo-img { width: 220px; filter: drop-shadow(0 3px 0 rgba(0,0,0,.7)); }
     .nav a.btn { padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; }
     .nav a.btn.cta { border-color: var(--accent); color: #09100b; background: var(--accent); font-weight: 700; }
     .links { display:flex; gap: 14px; align-items:center; }
     .links a:hover { color: var(--accent); }
     .hero { padding: 72px 0 40px; }
-    .pill { display:inline-flex; align-items:center; gap:8px; padding: 6px 10px; border-radius: 999px; background: #0f1310; border: 1px dashed #1f2b21; color: var(--muted); font-size: 12px }
-    .pill .green { color: var(--accent); }
     h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.07; margin: 14px 0 14px; letter-spacing: -0.5px; }
-    .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 64ch; }
-    .hero-actions { display:flex; gap: 14px; margin-top: 18px; flex-wrap:wrap }
+    .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 88ch; }
     .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); background: #111; color: var(--text); }
     .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #08140b; font-weight: 800; border-color: transparent; }
     .btn:hover { transform: translateY(-1px); }
-    .tag { padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-size: 12px }
     .section { padding: 64px 0; }
     .kicker { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 12px }
     h2 { font-size: clamp(28px, 4.5vw, 44px); margin: 6px 0 18px }
@@ -52,13 +47,16 @@
     .footer { border-top: 1px solid var(--border); padding: 36px 0 56px; color: var(--muted); }
     .footer a { color: var(--muted) }
     .mini { font-size: 12px; color: var(--muted) }
-    .logo-img { width: 140px; filter: drop-shadow(0 1px 0 rgba(0,0,0,.4)); }
-    @media (max-width: 920px) {
-      .nav .links { display: none; }
-    }
+    @media (max-width: 920px) { .nav .links { display: none; } }
     :target { scroll-margin-top: 90px; }
     .fade-in { animation: fade .6s ease both }
     @keyframes fade { from { opacity:0; transform: translateY(6px) } to { opacity:1; transform:none } }
+    /* Team card link styling */
+    .team-card-link { display: block; color: inherit; text-decoration: none; }
+    .card.team { transition: transform .15s ease, border-color .15s ease; }
+    .card.team:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .team-name { font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; margin: 0 0 4px; }
+    .team-title { font-size: 15px; color: var(--muted); margin: 0; }
   </style>
 </head>
 <body>
@@ -66,152 +64,102 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <img class="logo-img" src="images/logo_simple_white.png" alt="Lingsight logo" />
+        <img class="logo-img" src="logo_simple_white.png" alt="Lingsight logo" />
       </a>
       <div class="links">
-        <a href="#services">Services</a>
         <a href="#team">Team</a>
-        <a href="#contact" class="btn">Contact</a>
-        <a href="#contact" class="btn cta">Book intro</a>
+        <a href="#contact" class="btn cta">Contact us</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero (no outcomes panel) -->
+  <!-- Hero -->
   <header class="hero container fade-in">
-    <span class="pill"><span class="green">Lingsight</span> — world‑class linguists</span>
-    <h1>Linguistic insights for a complex, language‑driven world.</h1>
-    <p class="lead">We’re a team of world‑class linguists equipped to tackle any challenge where language plays a role—across scale, domain, and complexity. From building and evaluating AI systems to refining brand communication, working with large‑scale language data, and countering cybercrime or disinformation, we help you do it with precision and impact. With experience spanning major public research, top technology firms, and national security agencies, we bring scientific expertise and hands‑on practice to your toughest language problems.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#contact">Talk to us</a>
-      <a class="btn" href="#services">What we do</a>
-    </div>
+    <h1>Make your AI speak the right language.</h1>
+    <p class="lead">AI is transforming how companies design products, deliver services, and communicate with their customers. General-purpose AI models are powerful, but most businesses need carefully adapted systems that can perform context-specific tasks – like a customer-service AI agent tuned to match the brand’s voice and the language of its customers.</p>
+    <p class="lead">The challenge is knowing whether those adaptations actually work: does the model behave as intended, and does it achieve the desired effect on end users?</p>
+    <p class="lead">That’s where we come in. Lingsight, a linguistic consultancy within University of Birmingham Enterprise, helps organisations build and evaluate language models that truly understand language. We specialise in linguistically informed data design and evaluation, using advanced linguistic analysis methods to help clients ensure their AI systems are grounded in real patterns of human communication, optimised for specific domains, styles, and audiences.</p>
   </header>
 
-  <!-- Services (revised) -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="kicker">Services</div>
-      <h2>Where language meets impact.</h2>
-      <div class="grid cards">
-        <div class="card" style="grid-column: span 6">
-          <h3>AI systems & model behavior</h3>
-          <p>Design prompts, evaluations, and fine‑tuning strategies that encode voice, register, and safety—so models act on‑brand and on‑policy.</p>
-          <ul class="mini" style="margin:0; padding-left:18px">
-            <li>Prompt + eval suites, CI integration</li>
-            <li>Style adapters and fine‑tuning</li>
-            <li>Risk, safety, and compliance guardrails</li>
-          </ul>
-        </div>
-        <div class="card" style="grid-column: span 6">
-          <h3>Brand, voice & communication</h3>
-          <p>Turn values into language systems. We craft measurable guidelines for tone, register, and conversation flows across channels and markets.</p>
-          <ul class="mini" style="margin:0; padding-left:18px">
-            <li>Voice & tone playbooks, multilingual rules</li>
-            <li>Customer experience & messaging diagnostics</li>
-            <li>Register‑aware templates and QA</li>
-          </ul>
-        </div>
-        <div class="card" style="grid-column: span 6">
-          <h3>Large‑scale language data</h3>
-          <p>Build and analyze corpora to extract actionable insights from text at scale using topic modeling, corpus linguistics, and robust statistics.</p>
-          <ul class="mini" style="margin:0; padding-left:18px">
-            <li>Corpus design, cleaning, and dashboards</li>
-            <li>Topic modeling & variation analysis</li>
-            <li>Experiment design and measurement</li>
-          </ul>
-        </div>
-        <div class="card" style="grid-column: span 6">
-          <h3>Security, risk & disinformation</h3>
-          <p>Apply forensic linguistics to detect deception and manipulation in scams, influence operations, and online threats.</p>
-          <ul class="mini" style="margin:0; padding-left:18px">
-            <li>Threat linguistics & scam patterning</li>
-            <li>Deception/credibility assessment frameworks</li>
-            <li>Adversarial testing for misuse</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- Team -->
+  <!-- Team -->
   <section id="team" class="section">
     <div class="container">
       <div class="kicker">Team</div>
       <h2>Meet the linguists behind Lingsight.</h2>
       <div class="grid cards" style="grid-template-columns: repeat(12, 1fr)">
-        <!-- Matteo Fuoli -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Matteo%20Fuoli.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        <a class="card team team-card-link" href="https://research.birmingham.ac.uk/en/persons/matteo-fuoli" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Matteo%20Fuoli.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Matteo Fuoli</h3>
-            <p class="mini" style="margin:0 0 8px">Associate Professor of corpus-based discourse analysis</p>
-            <p>Studies how organisations use language to build <em>trust</em> and legitimacy, combining corpus methods with experiments. At Lingsight, Matteo leads frameworks for brand trust, reputation, and safety-sensitive messaging.</p>
+            <h3 class="team-name">Matteo Fuoli</h3>
+            <p class="team-title">Associate Professor of Corpus-Based Discourse Analysis</p>
           </div>
-        </div>
-        <!-- Jason Grafmiller -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Jason%20Grafmiller.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        </a>
+        <a class="card team team-card-link" href="https://research.birmingham.ac.uk/en/persons/jason-grafmiller" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Jason%20Grafmiller.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Jason Grafmiller</h3>
-            <p class="mini" style="margin:0 0 8px">Lecturer in corpus-based sociolinguistics</p>
-            <p>Quantitative specialist on grammatical variation across varieties and contexts. At Lingsight, Jason designs data pipelines and evaluation suites that turn messy language data into measurable model and UX improvements.</p>
+            <h3 class="team-name">Jason Grafmiller</h3>
+            <p class="team-title">Lecturer in Corpus-Based Sociolinguistics</p>
           </div>
-        </div>
-        <!-- Jack Grieve -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Jack%20Grieve.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        </a>
+        <a class="card team team-card-link" href="https://sites.google.com/view/grievejw/home" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Jack%20Grieve.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Jack Grieve</h3>
-            <p class="mini" style="margin:0 0 8px">Professor of Corpus Linguistics</p>
-            <p>Leads computational analyses of very large corpora to map language variation and change, including authorship analysis. At Lingsight, Jack brings population-scale insight and forensic measurement to high-stakes language problems.</p>
+            <h3 class="team-name">Jack Grieve</h3>
+            <p class="team-title">Professor of Corpus Linguistics</p>
           </div>
-        </div>
-        <!-- Akira Murakami -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Akira%20Murakami.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        </a>
+        <a class="card team team-card-link" href="https://akira-murakami.com/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Akira%20Murakami.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Akira Murakami</h3>
-            <p class="mini" style="margin:0 0 8px">Associate Professor; Visiting Scientist (RIKEN AIP)</p>
-            <p>Expert in second language acquisition, learner corpora, and quantitative modeling. At Lingsight, Akira builds robust evaluation frameworks for learning outcomes and model behavior across proficiency levels and cultures.</p>
+            <h3 class="team-name">Akira Murakami</h3>
+            <p class="team-title">Associate Professor; Visiting Scientist (RIKEN AIP)</p>
           </div>
-        </div>
-        <!-- Marcus Perlman -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Marcus%20Perlman.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        </a>
+        <a class="card team team-card-link" href="https://www.mperlman.org/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Marcus%20Perlman.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Marcus Perlman</h3>
-            <p class="mini" style="margin:0 0 8px">Associate Professor; Lead for Generative AI (School of EDACS)</p>
-            <p>Researches the evolution of language and iconicity in speech, vocalization, and gesture—including work with great apes. At Lingsight, Marcus bridges communication science to multimodal agent design and evaluation.</p>
+            <h3 class="team-name">Marcus Perlman</h3>
+            <p class="team-title">Associate Professor; Lead for Generative AI (School of EDACS)</p>
           </div>
-        </div>
-        <!-- Bodo Winter -->
-        <div class="card" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Bodo%20Winter.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+        </a>
+        <a class="card team team-card-link" href="https://bodowinter.com/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
+          <img src="Bodo%20Winter.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
-            <h3 style="margin:0 0 6px">Bodo Winter</h3>
-            <p class="mini" style="margin:0 0 8px">Professor of Linguistics; UKRI Future Leaders Fellow</p>
-            <p>Uses data science-driven linguistics to study multimodal communication; author of <em>Statistics for Linguists (Routledge)</em>. At Lingsight, Bodo ensures our experiments and models meet the highest statistical and scientific standards.</p>
+            <h3 class="team-name">Bodo Winter</h3>
+            <p class="team-title">Professor of Linguistics; UKRI Future Leaders Fellow</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
-<!-- CTA / Contact -->
+
+  <!-- CTA / Contact -->
   <section id="contact" class="section">
     <div class="container">
       <div class="card" style="background: radial-gradient(1200px 500px at 10% -20%, rgba(22,217,86,.12), transparent), var(--panel);">
         <div class="grid" style="grid-template-columns:1.2fr .8fr; gap:18px; align-items:center">
           <div>
             <h2>Let’s talk.</h2>
-            <p class="lead">Get in touch to explore how our lingsights can help you navigate complex language problems with clarity and confidence.</p>
+            <p class="lead">Get in touch to explore how our lingsights can help you optimise your AI models for your specific domains, styles, and audiences.</p>
           </div>
-          <form class="card" onsubmit="event.preventDefault(); thanks();">
+
+          <!-- Formspree-wired form with inline success -->
+          <form id="contact-form" class="card" onsubmit="return sendContact(event)">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="Lingsight — New enquiry">
+
             <label class="mini" for="name">Name</label>
-            <input id="name" required placeholder="Your name" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px">
+            <input id="name" name="name" required placeholder="Your name"
+                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px">
+
             <label class="mini" for="email">Email</label>
-            <input id="email" type="email" required placeholder="you@company.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px">
+            <input id="email" name="email" type="email" required placeholder="you@company.com"
+                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px">
+
             <label class="mini" for="msg">What’s the challenge?</label>
-            <textarea id="msg" rows="4" placeholder="Briefly describe your product and goals" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 14px"></textarea>
+            <textarea id="msg" name="message" rows="4" placeholder="Briefly describe your product and goals"
+                      style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 14px"></textarea>
+
             <button class="btn primary" type="submit">Request intro call</button>
             <div id="form-note" class="mini" style="margin-top:8px">No spam. We reply within 1–2 business days.</div>
           </form>
@@ -223,19 +171,41 @@
   <footer class="footer">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap">
       <div style="display:flex; align-items:center; gap:10px">
-        <span class="dot"></span>
+        <span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block"></span>
         <span>Lingsight © <span id="year"></span></span>
       </div>
-      <div class="mini">Built with love for language. <a href="#services">Explore services</a></div>
+      <div class="mini">Built with love for language.</div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    function thanks() {
+    async function sendContact(e){
+      e.preventDefault();
+      const form = e.target;
       const note = document.getElementById('form-note');
-      note.textContent = 'Thanks! We will get back to you shortly.';
-      note.style.color = 'var(--accent)';
+      note.textContent = 'Sending…';
+
+      const data = new FormData(form);
+      const endpoint = 'https://formspree.io/f/mvgwlpba';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          note.textContent = 'Thanks! We’ll get back to you shortly.';
+          note.style.color = 'var(--accent)';
+          form.reset();
+        } else {
+          note.textContent = 'Sorry—something went wrong. Please email us directly.';
+        }
+      } catch (err) {
+        note.textContent = 'Network error—please try again or email us directly.';
+      }
+      return false;
     }
   </script>
 </body>
