@@ -57,47 +57,68 @@
     .card.team:hover { transform: translateY(-2px); border-color: var(--accent); }
     .team-name { font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; margin: 0 0 4px; }
     .team-title { font-size: 15px; color: var(--muted); margin: 0; }
-    /* --- Mobile tweaks for team grid --- */
-    @media (max-width: 640px) {
-      .grid.cards { 
-        grid-template-columns: 1fr;   /* single column on phones */
-        gap: 14px;
-      }
-      .card.team { 
-        grid-column: auto !important; /* override inline “span 6” */
-        grid-template-columns: 88px 1fr;  /* photo left, text right */
-      }
-      .card.team img { 
-        width: 88px; 
-        height: 88px; 
-        object-fit: cover; 
-        border-radius: 12px; 
-      }
-      .team-name { font-size: 20px; }
-      .team-title { font-size: 14px; }
-    }
+/* --- Mobile tweaks for team grid --- */
+@media (max-width: 640px) {
+  .grid.cards { 
+    grid-template-columns: 1fr;   /* single column on phones */
+    gap: 14px;
+  }
+  .card.team { 
+    grid-column: auto !important; /* override inline “span 6” */
+    grid-template-columns: 88px 1fr;  /* photo left, text right */
+  }
+  .card.team img { 
+    width: 88px; 
+    height: 88px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+  }
+  .team-name { font-size: 20px; }
+  .team-title { font-size: 14px; }
+}
 
-    /* Avoid text overflow in narrow cards */
-    .team-name, .team-title { overflow-wrap: anywhere; }
+/* Avoid text overflow in narrow cards */
+.team-name, .team-title { overflow-wrap: anywhere; }
+  
+/* --- Strong mobile layout fix (V21 baseline) --- */
+html, body { overflow-x: hidden; }
+@media (max-width: 640px) {
+  .container { padding-left: 16px; padding-right: 16px; }
+  /* Force single column list of cards */
+  .grid.cards { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .grid.cards > * { grid-column: 1 / -1 !important; width: 100% !important; }
+  /* Team card internals */
+  .card.team { grid-template-columns: 88px 1fr !important; }
+  .card.team img { width: 88px !important; height: 88px !important; object-fit: cover; }
+  .team-name { font-size: 20px !important; }
+  .team-title { font-size: 14px !important; }
+}
 
   
-    /* --- Strong mobile layout fix for team section and overall page --- */
-    html, body { overflow-x: hidden; }
-    @media (max-width: 640px) {
-      .container { padding-left: 16px; padding-right: 16px; }
-      /* Kill the 12-col grid on phones and stack cards vertically */
-      .grid.cards { display: block !important; }
-      .grid.cards > .card { 
-        width: 100% !important; 
-        margin: 0 0 14px 0 !important; 
-        grid-column: 1 / -1 !important; 
-      }
-      /* Inside each team card: compact horizontal layout */
-      .card.team { display: grid !important; grid-template-columns: 80px 1fr !important; }
-      .card.team img { width: 80px !important; height: 80px !important; object-fit: cover; border-radius: 12px; }
-      .team-name { font-size: 19px !important; }
-      .team-title { font-size: 14px !important; }
+    /* Diagram under hero pitch */
+    .diagram { margin: 56px 0 0; }
+    .diagram img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+
+  
+    /* Pill link style */
+    .pill-link { 
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      color: #0a140d; background: var(--accent);
+      font-weight: 700; font-size: 14px;
+      box-shadow: 0 6px 18px rgba(22,217,86,.18);
     }
+    .pill-link:hover { transform: translateY(-1px); }
+
+  
+    /* Center logo on phones only */
+    @media (max-width: 640px) {
+      .nav-inner { justify-content: center; }
+      .nav .links { display: none !important; }
+      .logo { display: flex; justify-content: center; width: 100%; }
+      .logo-img { margin: 0 auto; }
+    }
+
   </style>
 </head>
 <body>
@@ -105,7 +126,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <img class="logo-img" src="images/logo_simple_white.png" alt="Lingsight logo" />
+        <img class="logo-img" src="logo_simple_white.png" alt="Lingsight logo" />
       </a>
       <div class="links">
         <a href="#team">Team</a>
@@ -116,10 +137,20 @@
 
   <!-- Hero -->
   <header class="hero container fade-in">
-    <h1>Make your AI speak the right language.</h1>
-    <p class="lead">AI is transforming how companies design products, deliver services, and communicate with their customers. General-purpose AI models are powerful, but most businesses need carefully adapted systems that can perform context-specific tasks – like a customer-service AI agent tuned to match the brand’s voice and the language of its customers.</p>
-    <p class="lead">The challenge is knowing whether those adaptations actually work: does the model behave as intended, and does it achieve the desired effect on end users?</p>
-    <p class="lead">That’s where we come in. Lingsight, a linguistic consultancy within University of Birmingham Enterprise, helps organisations build and evaluate language models that truly understand language. We specialise in linguistically informed data design and evaluation, using advanced linguistic analysis methods to help clients ensure their AI systems are grounded in real patterns of human communication, optimised for specific domains, styles, and audiences.</p>
+    <h1>Leveraging language science to build better AI</h1>
+    <p class="lead">Large Language Models are transforming how software is developed. Optimising performance, however, requires that developers carefully consider the language coming in and out of these systems during training and evaluation.</p>
+    <p class="lead">Although base models are powerful, performance on most tasks is improved by further pre-training on language from the target domain. But how should developers design and build these domain corpora?</p>
+    <p class="lead">The language output generated by applications based on Large Language Models is highly fluent. But how can the quality of this language be evaluated objectively to maximise communicative efficacy of these systems?</p>
+    <p class="lead">Lingsight is here to answer questions like these for software developers. We specialise in using advanced linguistic methods to guide model pre-training and assess generative outputs. Drawing on deep expertise in quantitative corpus linguistics, sociolinguistics, and cognitive linguistics, we help our clients ensure their AI systems are grounded in real patterns of human communication, designed for specific domains, tasks, styles, and audiences.
+<figure class="diagram">
+      <img src="diagram.jpg" alt="Model adaptation and evaluation pipeline">
+    </figure>
+
+    <div style="margin-top:18px">
+      <a class="pill-link" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">
+        Find out more about our approach
+      </a>
+    </div>
   </header>
 
   <!-- Team -->
@@ -129,42 +160,42 @@
       <h2>Meet the linguists behind Lingsight.</h2>
       <div class="grid cards" style="grid-template-columns: repeat(12, 1fr)">
         <a class="card team team-card-link" href="https://research.birmingham.ac.uk/en/persons/matteo-fuoli" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Matteo%20Fuoli.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Matteo%20Fuoli.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Matteo Fuoli</h3>
             <p class="team-title">Associate Professor of Corpus-Based Discourse Analysis</p>
           </div>
         </a>
         <a class="card team team-card-link" href="https://research.birmingham.ac.uk/en/persons/jason-grafmiller" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Jason%20Grafmiller.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Jason%20Grafmiller.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Jason Grafmiller</h3>
             <p class="team-title">Lecturer in Corpus-Based Sociolinguistics</p>
           </div>
         </a>
         <a class="card team team-card-link" href="https://sites.google.com/view/grievejw/home" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Jack%20Grieve.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Jack%20Grieve.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Jack Grieve</h3>
             <p class="team-title">Professor of Corpus Linguistics</p>
           </div>
         </a>
         <a class="card team team-card-link" href="https://akira-murakami.com/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Akira%20Murakami.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Akira%20Murakami.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Akira Murakami</h3>
             <p class="team-title">Associate Professor; Visiting Scientist (RIKEN AIP)</p>
           </div>
         </a>
         <a class="card team team-card-link" href="https://www.mperlman.org/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Marcus%20Perlman.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Marcus%20Perlman.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Marcus Perlman</h3>
             <p class="team-title">Associate Professor; Lead for Generative AI (School of EDACS)</p>
           </div>
         </a>
         <a class="card team team-card-link" href="https://bodowinter.com/" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
-          <img src="images/Bodo%20Winter.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
+          <img src="Bodo%20Winter.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
           <div>
             <h3 class="team-name">Bodo Winter</h3>
             <p class="team-title">Professor of Linguistics; UKRI Future Leaders Fellow</p>
