@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Language science for better AI</title>
   <meta name="description" content="Lingsight helps software teams apply language science to LLMs, designing domain corpora, guiding pre-training, and evaluating outputs for real-world impact." />
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo_small.png?v=5">
   <link rel="icon" type="image/png" sizes="16x16" href="images/logo_small.png?v=5">
   <link rel="shortcut icon" href="images/logo_small.png?v=5">
+  <link rel="apple-touch-icon" href="images/logo_small.png?v=5">
   <style>
     :root {
       --bg: #0b0b0c;
@@ -22,23 +24,35 @@
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
     * { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji"; line-height: 1.45; }
+    html, body { margin: 0; background: var(--bg); color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.45; }
     a { color: var(--text); text-decoration: none; }
     img { max-width: 100%; height: auto; display:block }
     .container { width: 100%; max-width: var(--maxw); padding: 0 20px; margin: 0 auto; }
-    .nav { position: sticky; top: 0; z-index: 40; background: linear-gradient(to bottom, rgba(11,11,12,.9), rgba(11,11,12,.7)); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+
+    /* Nav */
+    .nav { position: sticky; top: 0; z-index: 40;
+      background: linear-gradient(to bottom, rgba(11,11,12,.9), rgba(11,11,12,.7));
+      backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; gap: 16px; padding: 14px 0; }
-    .logo-img { width: 220px; filter: drop-shadow(0 3px 0 rgba(0,0,0,.7)); }
+    .logo { display:flex; align-items:center; }
+    .logo-img { width: 220px; filter: drop-shadow(0 3px 0 rgba(0,0,0,.7)); margin: 0; }
     .nav a.btn { padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; }
     .nav a.btn.cta { border-color: var(--accent); color: #09100b; background: var(--accent); font-weight: 700; }
     .links { display:flex; gap: 14px; align-items:center; }
     .links a:hover { color: var(--accent); }
+    @media (max-width: 640px) {
+      .nav-inner { justify-content: center; }
+      .links { display: none; }
+      .logo { justify-content: center; width: 100%; }
+      .logo-img { margin: 0 auto; }
+    }
+
+    /* Hero */
     .hero { padding: 72px 0 40px; }
     h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.07; margin: 14px 0 14px; letter-spacing: -0.5px; }
     .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); max-width: 88ch; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); background: #111; color: var(--text); }
-    .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #08140b; font-weight: 800; border-color: transparent; }
-    .btn:hover { transform: translateY(-1px); }
     .section { padding: 64px 0; }
     .kicker { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: 12px }
     h2 { font-size: clamp(28px, 4.5vw, 44px); margin: 6px 0 18px }
@@ -46,65 +60,42 @@
     .grid.cards { grid-template-columns: repeat(12, 1fr); }
     .card { padding: 18px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--panel); box-shadow: var(--shadow); }
     .card h3 { margin: 6px 0 10px }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); background: #111; color: var(--text); }
+    .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #08140b; font-weight: 800; border-color: transparent; }
+    .btn:hover { transform: translateY(-1px); }
+
     .footer { border-top: 1px solid var(--border); padding: 36px 0 56px; color: var(--muted); }
     .footer a { color: var(--muted) }
     .mini { font-size: 12px; color: var(--muted) }
     @media (max-width: 920px) { .nav .links { display: none; } }
+
     :target { scroll-margin-top: 90px; }
     .fade-in { animation: fade .6s ease both }
     @keyframes fade { from { opacity:0; transform: translateY(6px) } to { opacity:1; transform:none } }
-    /* Team card link styling */
+
+    /* Team card link styling (kept like V44) */
     .team-card-link { display: block; color: inherit; text-decoration: none; }
     .card.team { transition: transform .15s ease, border-color .15s ease; }
     .card.team:hover { transform: translateY(-2px); border-color: var(--accent); }
     .team-name { font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; margin: 0 0 4px; }
     .team-title { font-size: 15px; color: var(--muted); margin: 0; }
-/* --- Mobile tweaks for team grid --- */
-@media (max-width: 640px) {
-  .grid.cards { 
-    grid-template-columns: 1fr;   /* single column on phones */
-    gap: 14px;
-  }
-  .card.team { 
-    grid-column: auto !important; /* override inline “span 6” */
-    grid-template-columns: 88px 1fr;  /* photo left, text right */
-  }
-  .card.team img { 
-    width: 88px; 
-    height: 88px; 
-    object-fit: cover; 
-    border-radius: 12px; 
-  }
-  .team-name { font-size: 20px; }
-  .team-title { font-size: 14px; }
-}
 
-/* Avoid text overflow in narrow cards */
-.team-name, .team-title { overflow-wrap: anywhere; }
-  
-/* --- Strong mobile layout fix (V21 baseline) --- */
-html, body { overflow-x: hidden; }
-@media (max-width: 640px) {
-  .container { padding-left: 16px; padding-right: 16px; }
-  /* Force single column list of cards */
-  .grid.cards { grid-template-columns: 1fr !important; gap: 14px !important; }
-  .grid.cards > * { grid-column: 1 / -1 !important; width: 100% !important; }
-  /* Team card internals */
-  .card.team { grid-template-columns: 88px 1fr !important; }
-  .card.team img { width: 88px !important; height: 88px !important; object-fit: cover; }
-  .team-name { font-size: 20px !important; }
-  .team-title { font-size: 14px !important; }
-}
+    /* Mobile team layout (single column) */
+    @media (max-width: 640px) {
+      .grid.cards { grid-template-columns: 1fr; gap: 14px; }
+      .card.team { grid-column: auto !important; grid-template-columns: 88px 1fr; }
+      .card.team img { width: 88px; height: 88px; object-fit: cover; border-radius: 12px; }
+      .team-name { font-size: 20px; }
+      .team-title { font-size: 14px; }
+    }
+    .team-name, .team-title { overflow-wrap: anywhere; }
 
-  
-    /* Diagram under hero pitch */
+    /* Diagram */
     .diagram { margin: 72px 0 0; }
     .diagram img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--shadow); }
 
-  
-    /* Pill link style */
-    .pill-link { 
-      display: inline-flex; align-items: center; gap: 8px;
+    /* Pill link */
+    .pill-link { display: inline-flex; align-items: center; gap: 8px;
       padding: 8px 12px; border-radius: 999px;
       color: #0a140d; background: var(--accent);
       font-weight: 700; font-size: 14px;
@@ -112,35 +103,22 @@ html, body { overflow-x: hidden; }
     }
     .pill-link:hover { transform: translateY(-1px); }
 
-  
-    /* Center logo on phones only */
-    @media (max-width: 640px) {
-      .nav-inner { justify-content: center; }
-      .nav .links { display: none !important; }
-      .logo { display: flex; justify-content: center; width: 100%; }
-      .logo-img { margin: 0 auto; }
-    }
-
-  
-/* Smaller placeholder text on phones only */
-Jpx; line-height: 1.25; }
-
-  /* Vendor prefixes for wider mobile support */
-  Jpx; line-height: 1.25; }
-  Jpx; line-height: 1.25; }
-  Jpx; line-height: 1.25; }
-}
-
-  
-    /* Footer special link: green, no underline */
-    .green-link { color: var(--accent) !important; text-decoration: none !important; font-weight: 600; }
-
-  
-    /* Force green footer link */
+    /* Footer link green override */
     .footer .green-link { color: var(--accent) !important; text-decoration: none !important; font-weight: 600; }
 
+    /* Keep everything on unified container width */
+    .hero.container, #team .container, #contact .container, .footer .container { max-width: var(--maxw); }
+    /* On mobile: form stacks under text; tighter hero top padding */
+    @media (max-width: 640px) {
+      #contact .grid { grid-template-columns: 1fr !important; }
+      .hero { padding-top: 36px; }
+      /* Smaller placeholders */
+      #contact input::placeholder, #contact textarea::placeholder { font-size: 12px; line-height: 1.25; }
+      #contact input::-webkit-input-placeholder, #contact textarea::-webkit-input-placeholder { font-size: 12px; line-height: 1.25; }
+      #contact input::-moz-placeholder, #contact textarea::-moz-placeholder { font-size: 12px; line-height: 1.25; }
+      #contact input:-ms-input-placeholder, #contact textarea:-ms-input-placeholder { font-size: 12px; line-height: 1.25; }
+    }
   </style>
-  <link rel="apple-touch-icon" href="images/logo_small.png?v=5">
 </head>
 <body>
   <!-- Nav -->
@@ -156,17 +134,16 @@ Jpx; line-height: 1.25; }
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero (same as V44 structure) -->
   <header class="hero container fade-in">
     <h1>Language science for better AI.</h1>
     <p class="lead">Large Language Models are transforming how software is developed. Optimising performance, however, requires that developers carefully consider the language coming in and out of these systems during training and evaluation.</p>
     <p class="lead">Although base models are powerful, performance on most tasks is improved by further pre-training on language from the target domain. But how should developers design and build these domain corpora?</p>
     <p class="lead">The language output generated by applications based on Large Language Models is highly fluent. But how can the quality of this language be evaluated objectively to maximise communicative efficacy of these systems?</p>
-    <p class="lead">Lingsight is here to answer questions like these for software developers. We specialise in using advanced linguistic methods to guide model pre-training and assess generative outputs. Drawing on deep expertise in quantitative corpus linguistics, sociolinguistics, and cognitive linguistics, we help our clients ensure their AI systems are grounded in real patterns of human communication, designed for specific domains, tasks, styles, and audiences.
-<figure class="diagram">
+    <p class="lead">Lingsight is here to answer questions like these for software developers. We specialise in using advanced linguistic methods to guide model pre-training and assess generative outputs. Drawing on deep expertise in quantitative corpus linguistics, sociolinguistics, and cognitive linguistics, we help our clients ensure their AI systems are grounded in real patterns of human communication, designed for specific domains, tasks, styles, and audiences.</p>
+    <figure class="diagram">
       <img src="images/diagram.jpg" alt="Model adaptation and evaluation pipeline">
     </figure>
-
     <div style="margin-top:18px">
       <a class="pill-link" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">
         Find out more about our approach
@@ -174,7 +151,7 @@ Jpx; line-height: 1.25; }
     </div>
   </header>
 
-  <!-- Team -->
+  <!-- Team (identical links/titles to V44) -->
   <section id="team" class="section">
     <div class="container">
       <div class="kicker">Team</div>
@@ -226,7 +203,7 @@ Jpx; line-height: 1.25; }
     </div>
   </section>
 
-  <!-- CTA / Contact -->
+  <!-- Contact -->
   <section id="contact" class="section">
     <div class="container">
       <div class="card" style="background: radial-gradient(1200px 500px at 10% -20%, rgba(22,217,86,.12), transparent), var(--panel);">
@@ -236,22 +213,24 @@ Jpx; line-height: 1.25; }
             <p class="lead">Get in touch to explore how our lingsights can help you optimise your AI models for your specific domains, styles, and audiences.</p>
           </div>
 
-          <!-- Formspree-wired form with inline success -->
           <form id="contact-form" class="card" onsubmit="return sendContact(event)">
             <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_subject" value="Lingsight — New enquiry">
 
             <label class="mini" for="name">Name</label>
             <input id="name" name="name" required placeholder="Your name"
-                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text">
+                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px"
+                   autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text">
 
             <label class="mini" for="email">Email</label>
             <input id="email" name="email" type="email" required placeholder="you@company.com"
-                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="email">
+                   style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px"
+                   autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="email">
 
             <label class="mini" for="msg">What’s your challenge?</label>
             <textarea id="msg" name="message" rows="4" placeholder="Briefly describe your goals"
-                      style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 14px" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                      style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 14px"
+                      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 
             <button class="btn primary" type="submit">Request intro call</button>
             <div id="form-note" class="mini" style="margin-top:8px">No spam. We reply within 1–2 business days.</div>
@@ -273,6 +252,7 @@ Jpx; line-height: 1.25; }
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
     async function sendContact(e){
       e.preventDefault();
       const form = e.target;
@@ -280,7 +260,7 @@ Jpx; line-height: 1.25; }
       note.textContent = 'Sending…';
 
       const data = new FormData(form);
-      const endpoint = 'https://formspree.io/f/mvgwlpba';
+      const endpoint = 'https://formspree.io/f/mvgwlpba'; // from V44
 
       try {
         const res = await fetch(endpoint, {
@@ -300,9 +280,8 @@ Jpx; line-height: 1.25; }
       }
       return false;
     }
-  </script>
 
-  <script>
+    // Disable mobile text suggestions (phones only)
     (function(){
       function disableMobileSuggestions(){
         if (!window.matchMedia || !window.matchMedia('(max-width: 640px)').matches) return;
@@ -323,6 +302,5 @@ Jpx; line-height: 1.25; }
       }
     })();
   </script>
-
 </body>
 </html>
