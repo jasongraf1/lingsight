@@ -23,9 +23,12 @@
       --radius:14px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --padx:20px;
+      --navh: 0px;
     }
+
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Noto Sans,"Apple Color Emoji","Segoe UI Emoji";line-height:1.45}
+    body{padding-top:var(--navh)}
     a{color:var(--text);text-decoration:none}
     img{max-width:100%;height:auto;display:block}
 
@@ -33,7 +36,7 @@
     .container{width:100%;max-width:var(--maxw);padding:0 var(--padx);margin:0 auto}
 
     /* Nav */
-    .nav{position:sticky;top:0;z-index:40;background:linear-gradient(to bottom,rgba(11,11,12,.9),rgba(11,11,12,.7));backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+    .nav{position:fixed;top:0;left:0;width:100%;z-index:40;background:linear-gradient(to bottom,rgba(11,11,12,.9),rgba(11,11,12,.7));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
     .logo{display:flex;align-items:center}
     .logo-img{width:220px;filter:drop-shadow(0 3px 0 rgba(0,0,0,.7));margin:0}
@@ -307,6 +310,23 @@
         disableMobileSuggestions();
       }
     })();
+  
+    // Measure the header and set a CSS variable so content sits beneath it
+    (function(){
+      function setNavHeight(){
+        var nav = document.querySelector('.nav');
+        if(!nav) return;
+        var h = nav.offsetHeight || 0;
+        document.documentElement.style.setProperty('--navh', h + 'px');
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setNavHeight);
+      } else {
+        setNavHeight();
+      }
+      window.addEventListener('resize', setNavHeight, { passive: true });
+    })();
+
   </script>
 </body>
 </html>
