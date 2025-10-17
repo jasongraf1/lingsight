@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Language science for better AI</title>
   <meta name="description" content="World-class linguists helping teams solve complex language problems across AI, communication, large-scale language data, and security threats." />
-  <link rel="icon" type="image/png" href="images/logo_small.png?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo_small.png?v=5">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo_small.png?v=5">
+  <link rel="shortcut icon" href="images/logo_small.png?v=5">
   <style>
     :root {
       --bg: #0b0b0c;
@@ -135,7 +137,7 @@ html, body { overflow-x: hidden; }
 }
 
   </style>
-  <link rel="apple-touch-icon" href="images/logo_small.png?v=3">
+  <link rel="apple-touch-icon" href="images/logo_small.png?v=5">
 </head>
 <body>
   <!-- Nav -->
@@ -296,5 +298,28 @@ html, body { overflow-x: hidden; }
       return false;
     }
   </script>
+
+  <script>
+    (function(){
+      function disableMobileSuggestions(){
+        if (!window.matchMedia || !window.matchMedia('(max-width: 640px)').matches) return;
+        var form = document.getElementById('contact-form');
+        if (!form) return;
+        var fields = form.querySelectorAll('input, textarea');
+        fields.forEach(function(el){
+          el.setAttribute('autocomplete','off');
+          el.setAttribute('autocorrect','off');
+          el.setAttribute('autocapitalize','off');
+          el.setAttribute('spellcheck','false');
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', disableMobileSuggestions);
+      } else {
+        disableMobileSuggestions();
+      }
+    })();
+  </script>
+
 </body>
 </html>
