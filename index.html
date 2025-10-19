@@ -126,21 +126,16 @@
       .hero{padding-top:36px}
     }
   
-  /* Banner */
-  .hero-banner{margin:0 0 24px}
-  .hero-banner img{width:100%;height:auto;display:block;border:0}
-
-
   /* Mini pill button */
   .mini-pill{
     display:inline-block;
     margin-left:10px;
-    padding:6px 10px;
+    padding:4px 8px;
     border-radius:9999px;
     background:var(--accent, #16d956);
     color:#07150a;
     font-weight:600;
-    font-size:12px;
+    font-size:11px;
     line-height:1;
     text-decoration:none;
     vertical-align:middle;
@@ -155,12 +150,12 @@
   .mini-pill{
     display:inline-block;
     margin-left:10px;
-    padding:6px 10px;
+    padding:4px 8px;
     border-radius:9999px;
     background:var(--accent, #16d956);
     color:#07150a;
     font-weight:600;
-    font-size:12px;
+    font-size:11px;
     line-height:1;
     text-decoration:none;
     vertical-align:middle;
@@ -169,6 +164,22 @@
   .mini-pill:hover{opacity:.9;text-decoration:none}
 
 </style>
+
+  <style id="hero-lead-override">
+    header.hero .lead{font-size:20px}
+  </style>
+
+
+  <style id="mini-pill-override-2">
+    .mini-pill{padding:3px 7px;font-size:10.5px;line-height:1}
+  </style>
+
+
+  <style id="hero-indent-override">
+    header.hero .lead.indented{margin-left:24px}
+    @media (min-width:768px){header.hero .lead.indented{margin-left:32px}}
+  </style>
+
 </head>
 <body>
   <!-- Nav -->
@@ -186,15 +197,12 @@
 
   <!-- Hero -->
   <header class="hero">
-      <figure class="hero-banner">
-    <img src="images/banner_2.png" alt="Abstract data wave banner">
-  </figure>
-<div class="container">
+    <div class="container">
       <h1>Language Science for Language Models</h1>
       <p class="lead">LLMs are transforming software development, but working with natural language remains complex.</p>
-      <p class="lead">Base models benefit from further pretraining on domain-specific language – but how should these corpora be designed? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Read more</a></p>
-      <p class="lead">Generative AI produces fluent output – but how should its quality be evaluated? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Read more</a></p>
-      <p class="lead">Users instruct models in natural language – but how can we make these interactions more natural? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Read more</a></p>
+      <p class="lead indented">Base models benefit from further pretraining on domain-specific language – but how should these corpora be designed? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
+      <p class="lead indented">Generative AI produces fluent output – but how should its quality be evaluated? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
+      <p class="lead indented">Users instruct models in natural language – but how can we make these interactions more natural? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
       <p class="lead">Drawing on our deep expertise in linguistics, we help teams build AI systems optimised for real-world communicative domains, tasks, and users.</p>
 </div>
   </header>
