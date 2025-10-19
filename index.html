@@ -143,6 +143,12 @@
   }
   .mini-pill:hover{opacity:.9;text-decoration:none}
 
+
+  /* Footer logo bottom-right */
+  footer.footer{position:relative}
+  .footer-logo{position:absolute; right:20px; bottom:16px; height:28px; width:auto; opacity:0.9}
+  @media (min-width: 768px){ .footer-logo{ height:34px } }
+
 </style>
 
   <style id="force-black-bg">html,body{background:#000 !important;background-color:#000 !important;}
@@ -163,21 +169,51 @@
   }
   .mini-pill:hover{opacity:.9;text-decoration:none}
 
+
+  /* Footer logo bottom-right */
+  footer.footer{position:relative}
+  .footer-logo{position:absolute; right:20px; bottom:16px; height:28px; width:auto; opacity:0.9}
+  @media (min-width: 768px){ .footer-logo{ height:34px } }
+
 </style>
 
   <style id="hero-lead-override">
     header.hero .lead{font-size:20px}
-  </style>
+  
+  /* Footer logo bottom-right */
+  footer.footer{position:relative}
+  .footer-logo{position:absolute; right:20px; bottom:16px; height:28px; width:auto; opacity:0.9}
+  @media (min-width: 768px){ .footer-logo{ height:34px } }
+
+</style>
 
 
   <style id="mini-pill-override-2">
     .mini-pill{padding:3px 7px;font-size:10.5px;line-height:1}
-  </style>
+  
+  /* Footer logo bottom-right */
+  footer.footer{position:relative}
+  .footer-logo{position:absolute; right:20px; bottom:16px; height:28px; width:auto; opacity:0.9}
+  @media (min-width: 768px){ .footer-logo{ height:34px } }
+
+</style>
 
 
   <style id="hero-indent-override">
     header.hero .lead.indented{margin-left:24px}
     @media (min-width:768px){header.hero .lead.indented{margin-left:32px}}
+  
+  /* Footer logo bottom-right */
+  footer.footer{position:relative}
+  .footer-logo{position:absolute; right:20px; bottom:16px; height:28px; width:auto; opacity:0.9}
+  @media (min-width: 768px){ .footer-logo{ height:34px } }
+
+</style>
+
+
+  <style id="footer-logo-override">
+    .footer-logo{position:static;height:42px;width:auto;opacity:0.95;vertical-align:middle;margin-left:12px;display:inline-block}
+    @media (min-width:768px){.footer-logo{height:48px}}
   </style>
 
 </head>
@@ -211,7 +247,7 @@
   <section id="team" class="section">
     <div class="container">
       <div class="kicker">Team</div>
-      <h2>Meet the linguists behind Lingsight.</h2>
+      <h2>Meet the linguists behind Lingsight</h2>
       <div class="grid cards" style="grid-template-columns: repeat(12, 1fr)">
         <a class="card team team-card-link" href="https://www.birmingham.ac.uk/staff/profiles/elal/fuoli-matteo" target="_blank" rel="noopener" style="grid-column: span 6; display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:center">
           <img src="images/Matteo%20Fuoli.jpg" alt="Team member portrait" style="width:120px; height:120px; object-fit:cover; border-radius:12px">
@@ -302,9 +338,8 @@
         <span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block"></span>
         <span>Lingsight © <span id="year"></span></span>
       </div>
-      <div>An Operating Division of <a class="green-link" href="https://www.birmingham.ac.uk/collaborate/enterprise" target="_blank" rel="noopener">University of Birmingham Enterprise</a></div>
-    </div>
-  </footer>
+      <div>An Operating Division of <a class="green-link" href="https://www.birmingham.ac.uk/collaborate/enterprise" target="_blank" rel="noopener">University of Birmingham Enterprise</a></div><img class="footer-logo" src="images/UoB_logo.png" alt="University of Birmingham logo">
+    </div></footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
