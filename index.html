@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Language science for better AI</title>
+  <title>Language science for language models</title>
   <meta name="description" content="Lingsight helps software teams apply language science to LLMs, designing domain corpora, guiding pre-training, and evaluating outputs for real-world impact." />
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo_small.png?v=5">
@@ -216,6 +216,69 @@
     @media (min-width:768px){.footer-logo{height:48px}}
   </style>
 
+<style>
+
+/* --- Minor typographic tweaks (Oct 21, 2025) --- */
+header.hero h1{
+  /* Make the main title a bit smaller and increase space below */
+  font-size: clamp(36px, 5.5vw, 60px);
+  margin-bottom: 52px;
+}
+header.hero .lead.indented{
+  /* Slightly more indentation for the three questions */
+  margin-left: 32px;
+}
+@media (min-width:768px){
+  header.hero .lead.indented{ margin-left: 40px; }
+}
+
+</style>
+<style>.footer-logo{display:none !important}</style><style>
+footer.footer .container > div:last-child{
+  margin-left:auto;
+  text-align:right;
+}
+/* === Lingsight V55 custom tweaks (Oct 21, 2025) === */
+#contact .email-link{
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+#contact .email-link:hover{ text-decoration: underline; }
+
+/* More breathing room under the contact section heading */
+#contact h2{
+  margin-bottom: 16px;
+}
+/* === end tweaks === */
+</style><style>
+/* === Contact form typography consistency (placeholders & controls) === */
+#contact { font-family: inherit; }
+#contact input,
+#contact textarea,
+#contact select,
+#contact button,
+#contact label {
+  font: inherit;           /* inherit family, size, weight, line-height */
+  appearance: none;        /* reduce platform font quirks */
+}
+
+/* Placeholders should match the same font */
+#contact input::placeholder,
+#contact textarea::placeholder {
+  font: inherit;
+  opacity: 1;              /* Safari */
+}
+
+/* Older prefixes (harmless if unused) */
+#contact input::-webkit-input-placeholder,
+#contact textarea::-webkit-input-placeholder { font: inherit; opacity: 1; }
+#contact input::-moz-placeholder,
+#contact textarea::-moz-placeholder { font: inherit; opacity: 1; }
+#contact input:-ms-input-placeholder,
+#contact textarea:-ms-input-placeholder { font: inherit; opacity: 1; }
+/* === end contact form typography === */
+</style>
 </head>
 <body>
   <!-- Nav -->
@@ -225,7 +288,6 @@
         <img class="logo-img" src="images/logo_simple_white.png" alt="Lingsight logo" />
       </a>
       <div class="links">
-        <a href="#team">Team</a>
         <a href="#contact" class="btn cta">Contact us</a>
       </div>
     </div>
@@ -234,12 +296,12 @@
   <!-- Hero -->
   <header class="hero">
     <div class="container">
-      <h1>Language Science for Language Models</h1>
+      <h1>Language science for language models</h1>
       <p class="lead">LLMs are transforming software development, but working with natural language remains complex.</p>
-      <p class="lead indented">Base models benefit from further pretraining on domain-specific language – but how should these corpora be designed? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
-      <p class="lead indented">Generative AI produces fluent output – but how should its quality be evaluated? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
-      <p class="lead indented">Users instruct models in natural language – but how can we make these interactions more natural? <a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
-      <p class="lead">Drawing on our deep expertise in linguistics, we help teams build AI systems optimised for real-world communicative domains, tasks, and users.</p>
+      <p class="lead indented">Base models benefit from further pretraining, but how should domain-specific corpora be designed?<a class="mini-pill" href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2024.1472411/full" target="_blank" rel="noopener">Find out more</a></p>
+      <p class="lead indented">Generative AI produces fluent output, but how should its quality be evaluated? <a class="mini-pill" href="https://arxiv.org/abs/2508.16385" target="_blank" rel="noopener">Find out more</a></p>
+      <p class="lead indented">Users instruct models in natural language, but how can these interactions be made more effective? <a class="mini-pill" href="https://arxiv.org/abs/2509.24866" target="_blank" rel="noopener">Find out more</a></p>
+      <p class="lead">At Lingsight, we answer questions like these based on deep expertise in linguistics, helping teams build AI systems optimised for real-world communicative domains, tasks, and users.</p>
 </div>
   </header>
 
@@ -301,8 +363,8 @@
       <div class="card" style="background: radial-gradient(1200px 500px at 10% -20%, rgba(22,217,86,.12), transparent), var(--panel);">
         <div class="grid" style="grid-template-columns:1.2fr .8fr; gap:18px; align-items:center">
           <div>
-            <h2>Let’s talk.</h2>
-            <p class="lead">Get in touch to explore how our lingsights can help you optimise your AI models for your specific domains, styles, and audiences.</p>
+            <h2>Let’s talk</h2>
+            <p class="lead">Please get in touch to discuss how we can help you solve natural language challenges using large language models. You can use the form, contact us directly at <a class="email-link" href="mailto:info@lingsight.com">info@lingsight.com</a>.</p>
           </div>
 
           <form id="contact-form" class="card" onsubmit="return sendContact(event)">
@@ -319,13 +381,12 @@
                    style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 10px"
                    autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" inputmode="email">
 
-            <label class="mini" for="msg">What’s your challenge?</label>
-            <textarea id="msg" name="message" rows="4" placeholder="Briefly describe your goals"
+            <label class="mini" for="msg">How can we help?</label>
+            <textarea id="msg" name="message" rows="4" placeholder="Message"
                       style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#0c0d0e;color:var(--text);margin:6px 0 14px"
                       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 
-            <button class="btn primary" type="submit">Request intro call</button>
-            <div id="form-note" class="mini" style="margin-top:8px">We reply within 1–2 business days.</div>
+            <button class="btn primary" type="submit">Send</button>
           </form>
         </div>
       </div>
@@ -338,8 +399,7 @@
         <span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block"></span>
         <span>Lingsight © <span id="year"></span></span>
       </div>
-      <div>An Operating Division of <a class="green-link" href="https://www.birmingham.ac.uk/collaborate/enterprise" target="_blank" rel="noopener">University of Birmingham Enterprise</a></div><img class="footer-logo" src="images/UoB_logo.png" alt="University of Birmingham logo">
-    </div></footer>
+      <div>An Operating Division of <a class="green-link" href="https://www.birmingham.ac.uk/collaborate/enterprise" target="_blank" rel="noopener">University of Birmingham Enterprise</a></div></div></footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
