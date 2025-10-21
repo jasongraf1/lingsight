@@ -23,13 +23,11 @@
       --radius:14px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --padx:20px;
-      --navh: 72px;
+      --navh: 0px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Noto Sans,"Apple Color Emoji","Segoe UI Emoji";line-height:1.45}
-    html { overflow-anchor: none; }
-
     body{padding-top:var(--navh)}
     a{color:var(--text);text-decoration:none}
     img{max-width:100%;height:auto;display:block}
@@ -319,60 +317,32 @@ footer.footer .container > div:last-child{
 }
 </style>
 <style>
-/* Mobile-only: center footer layout */
-@media (max-width:640px){
-  .footer .container{
-    flex-direction: column;
-    justify-content: center !important; /* override inline space-between */
-    align-items: center;
-    text-align: center;
+/* Robust mobile-only centering for footer (overrides inline flex styles) */
+@media (max-width:768px){
+  footer.footer .container,
+  footer.footer .container[style*="justify-content"],
+  footer.footer .container[style*="space-between"]{
+    /* keep flex but stack & center */
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
   }
-  .footer .container > *{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-}
-</style>
-<style>
-/* Mobile-only: center footer content without stretching */
-@media (max-width:640px){
-  .footer .container{
-    flex-direction: column;
-    justify-content: center !important; /* override inline space-between */
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-  }
-  /* Do NOT force children full width; keep natural width */
-  .footer .container > *{
+  footer.footer .container > *{
+    flex: 0 0 auto !important;   /* no stretching */
     width: auto !important;
-    flex: 0 0 auto !important;
-    display: block;
-    margin: 0;
-    text-align: center;
+    margin: 0 !important;
+    text-align: center !important;
   }
-}
-</style>
-<style>
-/* Mobile-only: make footer exactly two centered lines */
-@media (max-width:640px){
-  .footer .container{
-    display: block !important;     /* ignore inline flex spacing */
-    text-align: center;
-  }
-  .footer .container > div{
-    display: inline-block !important;  /* keep natural width; center as blocks */
-    text-align: center;
-    margin: 4px 0;
-  }
-  .footer .container > div:first-child{
+  /* Dot + year stay together */
+  footer.footer .container > div:first-child{
     display: inline-flex !important;
-    align-items: center;
-    gap: 10px;
+    align-items: center !important;
+    gap: 10px !important;
   }
-  /* Keep organisation name together so it reads as one unit */
-  .footer .container a.green-link{ white-space: nowrap; }
+  /* Keep organisation name together */
+  footer.footer .container a.green-link{ white-space: nowrap; }
 }
 </style>
 </head>
