@@ -201,7 +201,7 @@
 
   <style id="hero-indent-override">
     header.hero .lead.indented{margin-left:24px}
-    @media (min-width:768px){header.hero .lead.indented{padding-right: 16px;}}
+    @media (min-width:768px){header.hero .lead.indented{margin-left:32px}}
   
   /* Footer logo bottom-right */
   footer.footer{position:relative}
@@ -283,6 +283,23 @@ footer.footer .container > div:last-child{
 /* Mobile-only: extra right margin for the three questions so text doesn't hit the edge */
 @media (max-width: 767.98px){
   header.hero .lead.indented{ margin-right: 16px; }
+}
+</style>
+<style>
+/* Mobile-only: add interior right padding so text wraps earlier */
+@media (max-width: 767.98px){
+  header.hero .lead.indented{ padding-right: 16px; }
+}
+</style>
+<style>
+/* Mobile-only: remove the indent on the three questions */
+@media (max-width: 767.98px){
+  header.hero .lead.indented{
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+    padding-inline-start: 0 !important;
+  }
 }
 </style>
 </head>
