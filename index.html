@@ -354,6 +354,27 @@ footer.footer .container > div:last-child{
   }
 }
 </style>
+<style>
+/* Mobile-only: make footer exactly two centered lines */
+@media (max-width:640px){
+  .footer .container{
+    display: block !important;     /* ignore inline flex spacing */
+    text-align: center;
+  }
+  .footer .container > div{
+    display: inline-block !important;  /* keep natural width; center as blocks */
+    text-align: center;
+    margin: 4px 0;
+  }
+  .footer .container > div:first-child{
+    display: inline-flex !important;
+    align-items: center;
+    gap: 10px;
+  }
+  /* Keep organisation name together so it reads as one unit */
+  .footer .container a.green-link{ white-space: nowrap; }
+}
+</style>
 </head>
 <body>
   <!-- Nav -->
