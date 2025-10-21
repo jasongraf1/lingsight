@@ -302,6 +302,20 @@ footer.footer .container > div:last-child{
   }
 }
 </style>
+<style>
+/* === Mobile fix: remove indent for the three questions (<=640px) ===
+   Use the site's small breakpoint (640px) to target phones precisely. */
+@media (max-width:640px){
+  header.hero .lead.indented{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+    /* also neutralize any earlier right spacing we tried */
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+</style>
 </head>
 <body>
   <!-- Nav -->
