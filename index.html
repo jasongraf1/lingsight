@@ -23,11 +23,13 @@
       --radius:14px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --padx:20px;
-      --navh: 0px;
+      --navh: 72px;
     }
 
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Noto Sans,"Apple Color Emoji","Segoe UI Emoji";line-height:1.45}
+    html { overflow-anchor: none; }
+
     body{padding-top:var(--navh)}
     a{color:var(--text);text-decoration:none}
     img{max-width:100%;height:auto;display:block}
