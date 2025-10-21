@@ -334,6 +334,26 @@ footer.footer .container > div:last-child{
   }
 }
 </style>
+<style>
+/* Mobile-only: center footer content without stretching */
+@media (max-width:640px){
+  .footer .container{
+    flex-direction: column;
+    justify-content: center !important; /* override inline space-between */
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+  /* Do NOT force children full width; keep natural width */
+  .footer .container > *{
+    width: auto !important;
+    flex: 0 0 auto !important;
+    display: block;
+    margin: 0;
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
   <!-- Nav -->
