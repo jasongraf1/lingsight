@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Language science for language models</title>
   <meta name="description" content="Lingsight helps software teams apply language science to LLMs, designing domain corpora, guiding pre-training, and evaluating outputs for real-world impact." />
   <!-- Favicon -->
@@ -28,7 +28,7 @@
 
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Noto Sans,"Apple Color Emoji","Segoe UI Emoji";line-height:1.45}
-    body{padding-top:var(--navh)}
+    body{}
     a{color:var(--text);text-decoration:none}
     img{max-width:100%;height:auto;display:block}
 
@@ -36,7 +36,7 @@
     .container{width:100%;max-width:var(--maxw);padding:0 var(--padx);margin:0 auto}
 
     /* Nav */
-    .nav{position:fixed;top:0;left:0;width:100%;z-index:40;background:linear-gradient(to bottom,rgba(11,11,12,.9),rgba(11,11,12,.7));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+    .nav{position:sticky;top:0;left:0;width:100%;z-index:40;background:linear-gradient(to bottom,rgba(11,11,12,.9),rgba(11,11,12,.7));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
     .logo{display:flex;align-items:center}
     .logo-img{width:220px;filter:drop-shadow(0 3px 0 rgba(0,0,0,.7));margin:0}
@@ -316,20 +316,35 @@ footer.footer .container > div:last-child{
   }
 }
 </style>
-
-<script>
-  // Keep page at top on first load when there is no hash; don't override anchor navigation.
-  try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch(e){}
-  if (!location.hash) {
-    window.addEventListener('DOMContentLoaded', function(){
-      requestAnimationFrame(function(){ window.scrollTo(0,0); });
-    });
-    window.addEventListener('pageshow', function(e){
-      if (!e.persisted) { window.scrollTo(0,0); }
-    });
+<style>
+/* Robust mobile-only centering for footer (overrides inline flex styles) */
+@media (max-width:768px){
+  footer.footer .container,
+  footer.footer .container[style*="justify-content"],
+  footer.footer .container[style*="space-between"]{
+    /* keep flex but stack & center */
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
   }
-</script>
-
+  footer.footer .container > *{
+    flex: 0 0 auto !important;   /* no stretching */
+    width: auto !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+  /* Dot + year stay together */
+  footer.footer .container > div:first-child{
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  /* Keep organisation name together */
+  footer.footer .container a.green-link{ white-space: nowrap; }
+}
+</style>
 </head>
 <body>
   <!-- Nav -->
@@ -502,22 +517,6 @@ footer.footer .container > div:last-child{
       } else {
         disableMobileSuggestions();
       }
-    })();
-  
-    // Measure the header and set a CSS variable so content sits beneath it
-    (function(){
-      function setNavHeight(){
-        var nav = document.querySelector('.nav');
-        if(!nav) return;
-        var h = nav.offsetHeight || 0;
-        document.documentElement.style.setProperty('--navh', h + 'px');
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setNavHeight);
-      } else {
-        setNavHeight();
-      }
-      window.addEventListener('resize', setNavHeight, { passive: true });
     })();
 
   </script>
